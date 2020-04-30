@@ -21,11 +21,11 @@ function fail(item) {
   const {enhancement, durability} = item;
 
   if (enhancement < 15) {
-    return {...item, durability: durability - 5}
-  } else if (enhancement > 14) {
-    return {...item, durability: durability - 10}
+    return {...item, durability: durability - 5};
+  } else if (enhancement > 14 && enhancement < 17) {
+    return {...item, durability: durability - 10};
   } else if (enhancement > 16) {
-    return {...item, enhancement: enhancement - 1}
+    return {...item, durability: durability - 10, enhancement: enhancement -1};
   };
   
 };
