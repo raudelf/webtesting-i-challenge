@@ -1,4 +1,4 @@
-const {succeed, fail, repair, get} = require('./enhancer.js');
+const {succeed, fail, repair} = require('./enhancer.js');
 // test away!
 
 describe('repair', () => {
@@ -58,6 +58,34 @@ describe('fail', () => {
         const expectedResult = {
             enhancement: 10,
             durability: 5
+        };
+
+        expect(fail(item)).toEqual(expectedResult);
+    });
+
+    it('Should decrease 10 from durability', () => {
+        const item = {
+            enhancement: 15,
+            durability: 20
+        };
+
+        const expectedResult = {
+            enhancement: 15,
+            durability: 10
+        };
+
+        expect(fail(item)).toEqual(expectedResult);
+    });
+
+    it('Should decrease 1 from enhancement and 10 from durability', () => {
+        const item = {
+            enhancement: 19,
+            durability: 20
+        };
+
+        const expectedResult = {
+            enhancement: 18,
+            durability: 10
         };
 
         expect(fail(item)).toEqual(expectedResult);
