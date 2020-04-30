@@ -10,7 +10,7 @@ function succeed(item) {
 
   if (enhancement == 20) {
     return (
-      `${name} is already at max enhancement!`, {...item}
+      `${name} is already at max enhancement!`
       )
   } else {
     return { ...item, enhancement: enhancement + 1 };
