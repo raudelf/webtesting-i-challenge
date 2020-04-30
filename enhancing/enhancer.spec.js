@@ -25,3 +25,41 @@ describe('repair', () => {
         expect(repair(item)).toBe("Item enhancement or durability is not within range!");
     });
 });
+
+describe('success', () => {
+    it('Should increase enhancement', () => {
+        const item = {
+            name: 'Test Item',
+            enhancement: 15
+        };
+
+        const expectedResult = {...item, enhancement: 16};
+
+        expect(succeed(item)).toEqual(expectedResult);
+    });
+
+    it('Should return a string error and item', () => {
+        const item = {
+            name: 'Test Item',
+            enhancement: 20
+        };
+
+        expect(succeed(item)).toBe(`${item.name} is already at max enhancement!`);
+    });
+});
+
+describe('fail', () => {
+    it('Should decrease 5 from durability', () => {
+        const item = {
+            enhancement: 10,
+            durability: 10
+        };
+
+        const expectedResult = {
+            enhancement: 10,
+            durability: 5
+        };
+
+        expect(fail(item)).toEqual(expectedResult);
+    });
+});
